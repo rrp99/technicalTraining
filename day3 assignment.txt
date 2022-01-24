@@ -1,0 +1,119 @@
+1)sudoku Problem
+
+#include<iostream>
+using namespace std;
+bool Valid(int arr[9][9])
+{
+
+    for(int i=0; i<9; i++)
+    {
+        for(int j=0; j<9; j++)
+        {
+            for(int k=j+1; k<9; k++)
+            {
+                 if(arr[i][j]==arr[i][k])
+                 {
+                 return false;
+                 }
+                
+            }
+        }
+                  
+    }            
+             
+             
+                for(int j=0; j<9; j++)
+                {
+                    for(int i=0; i<9; i++)
+                {
+                    for(int l=i+1; l<9; l++)
+                    {
+                        if(arr[l][j]==arr[i][j])
+                        {
+                        return false;    
+                        }
+                        
+                    }
+                    
+                }
+            }
+            
+            
+            cout<<"valid";
+            return true;
+        }
+        
+        
+        
+    int main()
+    {
+        int arr[9][9]={ { '5', '3', '.', '.', '7', '.', '.', '.', '.' },
+                         { '6', '.', '.', '1', '9', '5', '.', '.', '.' },
+                         { '.', '9', '8', '.', '.', '.', '.', '6', '.' },
+                         { '8', '.', '.', '.', '6', '.', '.', '.', '3' },
+                         { '4', '.', '.', '8', '.', '3', '.', '.', '1' },
+                         { '7', '.', '.', '.', '2', '.', '.', '.', '6' },
+                         { '.', '6', '.', '.', '.', '.', '2', '8', '.' },
+                         { '.', '.', '.', '4', '1', '9', '.', '.', '5' },
+                         { '.', '.', '.', '.', '8', '.', '.', '7', '9' } };
+        cout<<Valid(arr);
+    }
+
+
+
+
+2) Chess Problem
+
+#include <iostream>
+using namespace std;
+bool isSafe( int c1, int c2, int k1 , int k2 , int e1 , int e2, int q1, int q2 , int h1, int h2){
+    if(c1+c2==k1+k2 ||((k1-c1)==(k2-c2) || (c1-k1)==(c2-k2))){
+        return false;
+    }
+    
+    else if( k1==e1 || k2==e2){
+        return false;
+    }
+    
+    else if(q1==k1 || q2==k2 ||(q1+q2)==(k1+k2)){
+        return false;
+    }
+    
+    else if((h1+2==k1 && h2+1==k2) || (h1+1==k1 && h2+2==k2) || ( h1+2==k1 && h2-2==k2 ) || (h1+2==k1 && h2-1==k2 ) || (h1-2==k1 && h2+1==k2 ) || (h1-2==k1 && h2-1==k2 ) || (h1-1==k1 && h2+2==k2 ) || (h1-1==k1 && h2-2==k2 )){
+        return false;
+    }
+    
+    else{
+   
+      return true;
+    }
+}
+
+int main()
+{  int c1,c2,h1,h2,q1,q2,k1,k2,e1,e2;
+   
+    cout<<"king"<<endl;
+    cin>>k1;
+    cin>>k2;
+    
+    cout<<"camel"<<endl;
+    cin>>c1;
+    cin>>c2;
+   
+    cout<<"queen"<<endl;
+    cin>>q1;
+    cin>>q2;
+   
+    cout<<"elephant"<<endl;
+    cin>>e1;
+    cin>>e2;
+   
+    cout<<"horse"<<endl;
+    cin>>h1;
+    cin>>h2;
+   
+   
+  cout<<isSafe(c1 ,c2,k1,k2,e1,e2,q1,q2,h1,h2);
+    return 0;
+}
+

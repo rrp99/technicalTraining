@@ -1,0 +1,115 @@
+DAY 2
+i)Write a program to remove duplicate values from an array and returns an array of unique values. int[] removeDuplicates(int[]values)
+CODE
+#include <iostream>
+using namespace std;
+int main()
+{
+    int num, i, j, k, arr[100];
+ 
+    cin>>num;
+    cout<<"array elements ";
+    for(i=0; i<num; i++)
+    {
+        cin>>arr[i];
+    }
+    
+    for(i=0; i<num; i++)
+    {
+        for(j=i+1; j<num; j++)
+        {          
+            if(arr[i] == arr[j])
+            {      
+                for(k=j; k<num; k++)
+                {
+                    arr[k] = arr[k + 1];
+                }
+                num--;
+                j--;
+            }
+        }
+    }
+ cout<<"\n";
+    cout<<"final array : ";
+    for(i=0; i<num; i++)
+    {
+        cout<<"\n"<<arr[i];
+    }
+    cout<<"\n";
+    cout<<sizeof(arr);
+ 
+    return 0;
+}
+
+ii) Write a function that takes in a non-empty array of distinct integers and an integer representing a target sum. The function should find all triplets in the array that sum up to the target sum and return a two-dimensional array of all these triplets. The numbers in each triplet should be ordered in ascending order, and the triplets themselves should be ordered in ascending order with respect to the numbers they hold. If no three numbers sum up to the target sum, the function should return an empty array
+
+CODE:
+#include<iostream>
+using namespace std;
+bool triplets(int arr[], int size, int sum)
+{
+    for(int i=0; i<size; i++)
+    {
+        for(int j=i+1; j<size; j++)
+        {
+            for(int k=j+1; k<size; k++)
+            {
+                if(arr[i]+arr[j]+arr[k]==sum)
+                {
+                    cout<<arr[i]<<" "<<arr[j]<<" "<<arr[k]<<endl;
+                    return true;
+                }
+            }
+        }
+    }
+return false;
+}
+int main() {
+   
+     int arr[20];
+     int size ,sum;
+     cout<<"enter the size  of array ";
+     cin>>size;
+     cout<<"Enter the elements of the array ";
+     for( int i=0;i<size;i++){
+         cin>>arr[i];
+     }
+    cout<<"enter the sum of triplets ";
+     cin>>sum;
+     cout<<triplets(arr ,size, sum);
+     return 0;
+
+}
+
+
+
+
+
+
+
+iii) Write a program to print the below pattern:
+#include<iostream>
+using namespace std; 
+int main(){
+	int n;
+	cin>>n;
+              for(int i=0;i<n;i++)
+	   {    
+	        for(int j=0;j<n;j++)
+	     {
+	            
+               if(i==j && i!=n/2)
+                cout<<"\\";
+                
+               else if(j==n-i-1)
+                cout<<"/";
+               
+	           else 
+	            cout<<"*";
+	        }
+	        cout<<"";
+	        cout<<endl;
+	    }
+	    
+	}
+

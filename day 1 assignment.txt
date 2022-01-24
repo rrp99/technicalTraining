@@ -1,0 +1,155 @@
+DAY1
+
+1)Does not contain any vowel more than one.
+    If two S then no T in between them
+CODE:
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+	    Scanner s=new Scanner(System.in);
+	    String name=s.next();
+	    int arr[]={0,0,0,0,0};
+	   int checkS=0, checkS1=0, checkS2=0;
+	    for(int i=0;i<name.length();i++)
+	    {
+	        if(name.charAt(i)=='a')
+	            arr[0]++;
+            else if(name.charAt(i)=='e')
+	            arr[1]++;
+            else if(name.charAt(i)=='i')
+	            arr[2]++;
+            else if(name.charAt(i)=='o')
+	            arr[3]++;
+               else if(name.charAt(i)=='u')
+	            arr[4]++;
+	        else if(name.charAt(i)=='S')
+	        {
+	            checkS++;
+	            if(checkS1==0)
+	                checkS1=i+1;
+	           else
+	            checkS2=i+1;
+	        }	            
+	    }
+	    for(int i=0;i<5;i++)
+	    {
+	        if(arr[i]>1)
+	            {
+	                System.out.println("name is not valid1");
+	                return;
+	            }
+	    }
+	    if(checkS<2)
+	    {
+	        System.out.println("valid");
+	        return;
+	    }
+	    else
+	    {
+	        for(int i=checkS1;i<checkS2-1;i++)
+	        {
+	            if(name.charAt(i)=='T')
+	           {
+	                System.out.println("not valid");
+	                return;
+	           }         
+	        }
+	        System.out.println("name is valid 2");
+	    }
+	}
+}
+
+2) Swap first and last digit of a number
+CODE
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int last=n%10, m=0, first=0;
+    while(n>0)
+    {
+        first=n%10;
+        m=(m*10)+first; 
+        n=n/10;
+    }
+    n=n+last;
+    m/=10;
+    while(m>0)
+    {
+        if(m<10)
+            break;
+            n=(n*10)+(m%10);
+            m=m/10;
+    }
+        n=(n*10)+first;
+        cout<<n;
+    }
+
+
+
+3) Largest digit less than N whose each digit is a prime number.
+#include<iostream>
+using namespace std;
+int main(){
+	int n;
+	cin>>n;
+	int flag=0;
+	while(n){
+		flag=0;
+		int temp=n;
+		while(temp){
+			
+			int rem=temp%10;
+			temp=temp/10;
+			if(rem==2 || rem==3 || rem==5 || rem==7){}
+			else {
+				flag=1;
+				temp=0;
+			}
+			
+			}
+			if(flag==1) 
+			n--;
+			else break;
+	}
+	cout<<n;
+}
+
+
+4) Valid Url
+CODE
+
+
+
+
+
+5) Program to find smallest number divisible by all number between 1 and 9
+CODE:
+#include<iostream>
+using namespace std;
+int main()
+{
+int num =9;
+while(1)
+{
+if(num%2==0 && num%3==0 && num%4==0 && num%5==0 && num%6==0 && num%7==0 && num%8==0 && num%9==0)
+break;
+else num++;
+}
+cout<<num;
+}
+
+
+
+
+
+
+
+
+
+
+
+

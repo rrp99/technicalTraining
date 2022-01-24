@@ -1,0 +1,76 @@
+question 3
+#include<iostream>
+using namespace std;
+int main()
+{
+    int m,n, target;
+    cin>>m>>n>>target;
+    int a[m][n];
+    for(int i=0; i<m; i++)
+    {
+        for(int j=0; j<n; j++)
+        {
+            cin>>a[i][j];
+        }
+    }
+    int flag=0;
+    for(int i=0; i<n; i++)
+    {
+        if(a[i][0]<=target)
+        {
+        for(int j=0; j<n; j++)
+        {
+            if(a[i][j]==target)
+            {
+                flag=1;
+                cout<<"true"<<"\n";
+                
+            }            
+            
+        }
+        }
+        }
+        if(flag==0)
+        {
+            cout<<"false"<<"\n";
+        }
+    
+}
+
+
+question 5
+#include<iostream>
+using namespace std;
+int main() {
+   int arr[3][3], r=3, c=3, i, j;
+   int a[3][3] = { {1, 2, 3} , {4, 5, 6} , {7,8,9} };
+   cout<<endl;
+   for(i=0; i<r; i++) {
+      for(j=0; j<c; j++)
+      cout<<a[i][j]<<" ";
+      cout<<endl;
+   }
+   cout<<endl;
+   for(i=0; i<r; i++)
+   for(j=0; j<c; j++) {
+      arr[j][i] = a[i][j];
+   }
+   
+ 
+   for (int i=0; i<r; i++) 
+   {
+       for(int j=0; j<c/2; j++)
+       {
+        swap(arr[i][j],arr[i][c-j-1]);
+       }
+   
+   }
+   
+   for(i=0; i<c; i++) {
+      for(j=0; j<r; j++)
+      cout<<arr[i][j]<<" ";
+      cout<<endl;
+   }
+   
+   return 0;
+}

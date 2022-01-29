@@ -1,0 +1,254 @@
+2) Inverter code
+
+class Battery {   // Battery class having all the functionalities
+    private double internalRestance; // in milliOhms
+    private double cellVoltage; // in volts
+    private int cost; // in rupees
+    private int Ah; // Amp hours
+
+    public Battery(double internalRestance, int cycleLife, double fastChargeTime, double cellVoltage, int cost,
+            int Ah) {  
+        this.internalRestance = internalRestance;
+        this.cellVoltage = cellVoltage;
+        this.cost = cost;
+        this.Ah = Ah;
+    }
+    
+    public void setInternalRestance(double internalRestance) {
+        this.internalRestance = internalRestance;
+    }
+
+    public double getInternalRestance() {
+        return internalRestance;
+    }
+
+    
+}
+
+class Inverter {  // Generic Inverter class which contains name and power rating
+    private String name;
+    private double current;
+    private double operatingVoltage;
+    private double powerRating;
+
+    public Inverter(String name, double current, double operatingVoltage) {
+        this.name = name;
+        this.current = current;
+        this.operatingVoltage = operatingVoltage;
+    }
+
+    public void setPowerRating() {
+        this.powerRating = current * operatingVoltage;
+    }
+    
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    public void setCurrent(double current) {
+        this.current = current;
+        setPowerRating();
+    }
+
+    public void setOperatingVoltage(double operatingVoltage) {
+        this.operatingVoltage = operatingVoltage;
+        setPowerRating();
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public double getCurrent() {
+        return current;
+    }
+
+    public double getOperatingVoltage() {
+        return operatingVoltage;
+    }
+
+    public double getPowerRating() {
+        return powerRating;
+    }
+}
+
+class NonSolarInverter extends Inverter {
+    private Battery battery;
+
+    public NonSolarInverter(String name, double current, double operatingVoltage, Battery battery) {
+        super(name, current, operatingVoltage);
+        this.battery = battery;
+    }
+    
+    public void setBattery(Battery battery) {
+        this.battery = battery;
+    }
+
+    public Battery getBattery() {
+        return battery;
+    }
+}
+
+class SolarInverter extends Inverter {
+    private boolean isGridOn;
+    private int numOfSolarPanels;
+
+    public SolarInverter(String name, double current, double operatingVoltage, int numOfSolarPanels, boolean isGridOn) {
+        super(name, current, operatingVoltage);
+        this.numOfSolarPanels = numOfSolarPanels;
+        this.isGridOn = isGridOn;
+    }
+    
+    public void setGridOn(boolean gridOn) {
+        isGridOn = gridOn;
+    }
+    
+    public boolean isGridOn() {
+        return isGridOn;
+    }
+
+    public void setNumOfSolarPanels(int numOfSolarPanels) {
+        this.numOfSolarPanels = numOfSolarPanels;
+    }
+    
+    public int getNumOfSolarPanels() {
+        return numOfSolarPanels;
+    }
+}
+
+class SolarInverterWithBattery extends SolarInverter {
+    private Battery battery;
+
+    public SolarInverterWithBattery(String name, double current, double operatingVoltage, int numOfSolarPanels,
+            boolean isGridOn, Battery battery) {
+        super(name, current, operatingVoltage, numOfSolarPanels, isGridOn);
+        this.battery = battery;
+    }
+    
+    public void setBattery(Battery battery) {
+        this.battery = battery;
+    }
+
+    public Battery getBattery() {
+        return battery;
+    }
+
+}
+
+public class Main {
+
+    public static void main(String[] args) {
+        SolarInverterWithBattery pcu = new SolarInverterWithBattery("PCU", 2, 12.3, 75, false,
+                new Battery(23, 100, 5.5, 14.5, 15000, 100));
+        SolarInverter gti = new SolarInverter("GTI", 2, 14.5, 50, true);
+        SolarInverter regalia = new SolarInverter("Regalia", 3, 12.0, 80, false); // I assumed its GridOn property to be
+                                                                                  // false as it was not specified in
+                                                                                  // the question
+
+        NonSolarInverter zelio = new NonSolarInverter("Zelio", 3, 14.7, new Battery(250, 120, 4.5, 7.5, 10000, 110));
+        NonSolarInverter iCruze = new NonSolarInverter("iCruze", 4, 12.3, new Battery(150, 90, 3.5, 10.0, 12000, 125));
+        int val=gti.getNumOfSolarPanels();
+        System.out.println(val);
+        
+    }
+}
+
+
+2) Politics Code
+#include<iostream>
+using namespace std;
+class Vehicle{
+	protected:
+		string build;
+};
+class Driver{
+	public:
+	string name;
+	Driver(){
+	
+	}
+};
+class CarDriver : Driver{
+	
+};
+class AirCraftDriver : Driver{
+	
+};
+class Car : Vehicle{
+	public:
+	
+};
+class Aircraft : Vehicle{
+	public:
+	
+};
+class MP{
+	protected:
+	string name;
+	CarDriver driver;
+	int spend;
+	int spendLimit;
+	Car car;
+	public:
+	string role;
+		string getConstituency(){
+			return "Noida";
+		}
+		setDetails(string name,string role, int spend,int spendLimit){
+			this-> name= name;
+			this->role = role;
+			this->spend = spend;
+			this->spendLimit = spendLimit;
+		}
+		getDriver(){
+			driver;	
+		}
+		bool exceedsSpendingLimit(){
+			if(spend<=spendLimit)
+				return true;
+			return false;
+		}
+		string details(){
+			string temp=role;
+			temp+=" ";
+			temp+=name;
+			return temp;
+			
+		}
+};
+class PM : protected MP{
+	Aircraft aircraft;
+	AirCraftDriver driver;
+	public:
+	bool permission(MP mp){
+		if(mp.exceedsSpendingLimit())
+			return true;
+		return false;
+	}
+};
+class Minister : protected MP{
+	
+};
+class Comissioner{
+	public:
+		string canArrest(MP mp, PM pm){
+			if(mp.role == "MP" && !mp.exceedsSpendingLimit())
+			return mp.details()+" arrested";
+			
+			if(pm.permission(mp) && mp.exceedsSpendingLimit())
+			return "spend is within limit";
+			else{
+				return mp.details()+" arrested";
+			}
+		}
+};
+
+int main(){
+
+	MP mp;
+	mp.setDetails("rahul","MP",500000,100000);
+	cout<<mp.details();
+	PM pm;
+	Comissioner comm;
+	cout<<endl<<comm.canArrest(mp,pm);
+}

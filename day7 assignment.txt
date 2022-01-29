@@ -1,0 +1,49 @@
+2)
+{
+	"employee": {
+		"name": "Rahul",
+		"salary": 10000,
+		"married": false,
+		"grade": null,
+		"address": {
+			"primaryAddress": "Noida",
+			"secondaryAddress": "Delhi",
+			"country": "India",
+			"state": "Rajasthan"
+		},
+		"mobileNumbers": ["12345", "124567", "1245578"],
+		"address1": {
+			"primaryAddress": "Noida",
+			"secondaryAddress": "delhi",
+			"country": "India",
+			"state": "Rajasthan"
+		}
+
+	}
+}
+
+
+
+3)
+class person
+{
+string firstname;
+string lastname;
+int age;
+Address address;
+Phonenumbers phonenumbers[];
+};
+
+class Address
+{
+string streetaddress;
+string city;
+string state;
+int postalcode;
+};
+
+class phoneNumbers;
+{
+string type;
+int numbers;
+};

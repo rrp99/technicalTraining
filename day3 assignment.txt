@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 1)sudoku Problem
 
 #include<iostream>
@@ -360,4 +359,3 @@ int main()
     return 0;
 }
 
->>>>>>> a6d27f4eb436473b0397e7ae3509d2f9c3790912

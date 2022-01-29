@@ -1,0 +1,271 @@
+question1
+#include<iostream>
+using namespace std;
+
+class vegetableBill
+{
+    
+    
+    public:
+    string name;
+    string type;
+    int total;
+    int quantity;
+    Employee employee;
+    
+    vegetableBill vegetablebill;
+   vegetableBill(Employee clerk)
+   {
+       employee=clerk
+   }
+
+    public void add(Item i)
+     {
+        vegetablebill.total+=i.price;
+     }
+    
+
+    public double getTotal()
+    {
+        return vegetablebill.total;
+    }
+    
+
+void printReceipt()
+    {
+        cout<<"Name "<<name<<"\n";
+        cout<<"type "<<type<<"\n";
+        cout<<"price "<<price<<"\n";
+        cout<<"quantity "<<quantity<<"\n";
+    }
+    
+};
+
+
+class Item
+{
+    string itemName;
+    int itemprice;
+    int discount;
+    
+    Item(string itemname, int itemprice, int discount)
+    {
+        this->itemname=itemname;
+        this->itemprice=itemprice;
+    }
+    
+    
+    
+        void getPrice()
+        {
+            return this->itemprice;
+
+    }
+
+ void getDiscount()
+     {
+    return this->discount;
+    
+     }
+};
+
+class Employee
+{
+  public:
+   string name;
+   int age;
+   vegetableBill vegetablebill;
+   Employee(string name)
+   {
+       this->name=name;
+   }
+   
+Employee(string name, int age)
+{
+    this->name=name;
+    this->age=age;
+}
+   
+   void setBill(string name, string type, int price, int quantity)
+   {
+       this->vegetablebill=vegetableBill();
+   }
+   void vegetabledetails()
+   {
+    vegetablebill.printReceipt();   
+   }
+};
+
+class Discountbill : vegetableBill
+{
+    
+    
+};
+
+
+public getDiscountAmount()
+{
+    
+    
+}
+
+public getDiscountPercent()
+{
+    
+    
+}
+
+
+int main()
+{
+    Employee clerk("Rahul ", 22);
+    cout<<clerk.name<<"of age "<<clerk.age<<" bought item: "<<endl;
+    vegetableBill veg[3];
+    for(int i=0; i<3; i++)
+    {
+        cout<<"Item Name: ";
+        cin>>veg[i].name;
+        cout<<"type: ";
+        cin>>veg[i].type;
+        cout<<"quantity(kg): ";
+        cin>>veg[i].quantity;
+        cout<<"price: ";
+        cin>>veg[i].price;
+      
+    }
+    for(int i=0; i<3; i++)
+    {
+        veg[i].printReceipt();
+    }
+}
+
+
+Question2
+#include<iostream>
+using namespace std;
+class Main 
+{
+        Main main
+        int length;
+        int height;
+        int width;
+        Flute flute;
+        Box box UniversalBox(length, height, width, flute);
+        
+    }
+}
+
+class Box{
+    int length;
+    int height;
+    int width;;
+    int area;
+    Flute flute;
+     Box(int length,int height, int width,  Flute flute){
+        this->length= length;
+        this->height =height;
+        this->width= width;
+        this->flute= flute;
+     }
+
+     public double area(){
+         return length*width* height ;
+     }
+     
+     
+     public double costOfBox(){
+         double area= area();
+         Stitching stitchingCost;
+         
+     }
+}
+
+class UniversalBox : Box{
+
+    public UniversalBox(int length, int height, int width,  Flute flute) {
+            }
+
+}
+
+class AllFlapMeetingBox : Box{
+    
+    public AllFlapMeetingBox(int length, int height, int width, Flute flute) {
+        
+    }
+}
+
+class HoneyCombBox : Box{
+    
+     HoneyCombBox(int length, int height, int width, Flute flute) 
+    {
+    }
+}
+
+class ReverseTuckBox : Box{
+ 
+    public ReverseTuckBox(int length, int height, int width, Flute flute) {
+        
+    }
+}
+
+class TopOpeningBox : Box{
+
+    public TopOpeningBox(int length, int height, int width, Flute flute) 
+    {
+        
+    }  
+}
+
+class Flute
+{
+     
+}
+
+class A : Flute{
+
+    double extraGsm= 10;
+    A(double gsm, double extraGsm) {
+        super(gsm, extraGsm);
+    }
+
+}
+
+class B  : Flute{
+
+    B(double gsm, double extraGsm) {
+        super(gsm, extraGsm);
+    }
+
+}
+
+class C : Flute{
+
+    C(double gsm, double extraGsm) {
+        super(gsm, extraGsm);
+    }
+
+}
+
+
+class Stitching
+{
+
+}
+
+class Pin : Stitching{
+
+
+    public double cost(){
+        return pinCost;
+    }
+}
+
+class Pasting : Stitching{
+
+    int CostUniversal = 20;
+    int CostAllFlapMeeting = 30;
+    int CostHoneyComb = 40;
+    int CostReverseTuckIn = 40;
+    int CosTopOpeningSnapLock = 50;
+
+}

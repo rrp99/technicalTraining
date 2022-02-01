@@ -1,3 +1,153 @@
+1)whatsapp Code:
+
+#include<bits/stdc++.h>
+using namespace std;
+class Message
+{
+        public:	
+		int messageID;
+};
+class Status{
+	public:
+		int statusID;
+};
+class Text : public Message, public Status
+{
+  
+	Text()
+	{
+		cout<<"Text"<<endl;
+	}
+};
+class Audio : public Message
+{
+    
+	Audio()
+	{
+		cout<<"Audio"<<endl;
+	}
+};
+class Video : public Message, public Status
+    {
+	Video()
+	{
+		cout<<"Video"<<endl;
+	}
+};
+class Image : public Message, public Status
+    {
+	public:
+	Image()
+	{
+		cout<<"Image"<<endl;
+	}
+};
+
+class Chat{
+	public:
+	int id;
+	int status_id;
+	Message message;
+};
+class Contact
+{
+	public:
+	int contactID;
+	list<Status> statusList;
+	string name;
+	string number;
+	string about;
+	Image image;
+};
+
+class Setting{
+	public:
+		void accountSetting()
+		{
+		}
+		void chatSetting()
+		{
+		}
+		void notificationSetting()
+		{
+		}
+};
+class Group{
+	Contact contact;
+	int id;
+};
+class User{
+	int userID;
+	string name;
+	string number;
+	Contact contact;
+	map<Contact,Chat[]> Chats;
+	list<Status> statusList;
+	public:
+		void addContact(Contact contact){
+			
+		}
+};
+class ChatManager : public Contact, public Message
+{
+	public:
+		void sendMessage(Message message, int contactID)
+		{
+		}
+		void receiverMessage(Message message)
+		{
+		}
+		void deleteMessage(int messageID){
+		}
+		
+		void showChats(int contactID)
+		{
+		}
+};
+class CallManager : public User, public Contact
+{
+	public:
+		void call(int contactID, string number)
+		{
+		}
+		void receiveCall(string number, int contactID)
+		{
+		}
+};
+class StatusManager : public Contact, public Status
+{
+	public:
+		void showStatus()
+		{
+		}
+		void receiveStatus(int contactID, Status status){
+		}
+		void shareStatus(Status status){
+		}
+};
+class ProfileDetail
+{
+	Setting setting;
+	Image image;
+	string Description;
+};
+class Whatsapp
+{
+	User user;
+	CallManager callManager;
+	StatusManager statusManager;
+	ChatManager chatManager;
+};
+int main()
+{
+	ChatManager c1;
+	Message m1;
+    c1.receiverMessage(m1);
+    
+	
+}
+
+
 2)
 {
 	"employee": {
